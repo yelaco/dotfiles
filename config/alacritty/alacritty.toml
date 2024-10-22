@@ -1,0 +1,18 @@
+
+[window]
+
+opacity = 1.0
+padding.x = 0
+padding.y = 0
+
+[font]
+
+normal.family = "JetBrainsMono Nerd Font"
+bold.family = "JetBrainsMono Nerd Font"
+italic.family = "JetBrainsMono Nerd Font"
+bold_italic.family = "JetBrainsMono Nerd Font"
+
+size = 11.5
+
+[general]
+import = ["dracula.toml"]
