@@ -1,21 +1,19 @@
 use_nerdfont=true
 
 [theme]
-background = "black"
-primary = "#F8F8F2"
-secondary = "light black"
-title = "#bd93f9"
-playing = "#bd93f9"
-playing_selected = "#D0B3FA"
-playing_bg = "black"
-highlight = "#f8f8f2"
-highlight_bg = "#44475a"
-error = "#f8f8f2"
-error_bg = "#ff5555"
-statusbar = "black"
-statusbar_progress = "#bd93f9"
-statusbar_bg = "#bd93f9"
-cmdline = "#f8f8f2"
-cmdline_bg = "black"
-search_match = "#ff79c6"
-
+background = "#1e1e2e"             # Matches the background color from the palette
+primary = "#cdd6f4"                # Matches the foreground color
+title = "#89b4fa"                  # Matches magenta for titles
+playing = "#f38ba8"                # Also uses magenta for currently playing track
+playing_selected = "#f9e2af"       # Matches yellow for selected playing
+playing_bg = "#1e1e2e"             # Matches background
+highlight = "#cdd6f4"              # Matches foreground for text highlight
+highlight_bg = "#313244"           # A dark color for highlight background
+error = "#f38ba8"                  # Matches red from the palette
+error_bg = "#ff5555"               # Kept similar to the original config
+statusbar = "#1e1e2e"              # Matches the background
+statusbar_progress = "#a6e3a1"     # Matches green for progress bar
+statusbar_bg = "#89b4fa"           # Matches blue for status bar background
+cmdline = "#cdd6f4"                # Matches the foreground
+cmdline_bg = "#1e1e2e"             # Matches background
+search_match = "#f38ba8"           # Matches red for search matches
