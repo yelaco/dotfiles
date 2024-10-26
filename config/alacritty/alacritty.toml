@@ -1,18 +1,24 @@
 
 [window]
 
-opacity = 1.0
+opacity = 0.9
 padding.x = 0
 padding.y = 0
 
 [font]
-
-normal.family = "JetBrainsMono Nerd Font"
-bold.family = "JetBrainsMono Nerd Font"
-italic.family = "JetBrainsMono Nerd Font"
-bold_italic.family = "JetBrainsMono Nerd Font"
+normal.family = "FiraCode Nerd Font"
+normal.style = "SemiBold"
+bold.family = "FiraCode Nerd Font"
+bold.style = "Bold"
+italic.family = "FiraCode Nerd Font"
+italic.style = "SemiBold"
+bold_italic.family = "FiraCode Nerd Font"
+bold_italic.style = "Bold"
 
 size = 11.5
 
 [general]
-import = ["dracula.toml"]
+import = [
+  # "dracula.toml"
+  "catppuccin-mocha.toml"
+]
