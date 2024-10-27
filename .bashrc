@@ -121,32 +121,32 @@ fi
 
 ##-----------------------------------------------------
 ## synth-shell-greeter.sh
-if [ -f /home/yelaco/.config/synth-shell/synth-shell-greeter.sh ] && [ -n "$(echo $- | grep i)" ]; then
-	source /home/yelaco/.config/synth-shell/synth-shell-greeter.sh
+if [ -f ~/.config/synth-shell/synth-shell-greeter.sh ] && [ -n "$(echo $- | grep i)" ]; then
+	source ~/.config/synth-shell/synth-shell-greeter.sh
 fi
 
 ##-----------------------------------------------------
 ## synth-shell-prompt.sh
-if [ -f /home/yelaco/.config/synth-shell/synth-shell-prompt.sh ] && [ -n "$(echo $- | grep i)" ]; then
-	source /home/yelaco/.config/synth-shell/synth-shell-prompt.sh
+if [ -f ~/.config/synth-shell/synth-shell-prompt.sh ] && [ -n "$(echo $- | grep i)" ]; then
+	source ~/.config/synth-shell/synth-shell-prompt.sh
 fi
 
 ##-----------------------------------------------------
 ## better-ls
-if [ -f /home/yelaco/.config/synth-shell/better-ls.sh ] && [ -n "$(echo $- | grep i)" ]; then
-	source /home/yelaco/.config/synth-shell/better-ls.sh
+if [ -f ~/.config/synth-shell/better-ls.sh ] && [ -n "$(echo $- | grep i)" ]; then
+	source ~/.config/synth-shell/better-ls.sh
 fi
 
 ##-----------------------------------------------------
 ## alias
-if [ -f /home/yelaco/.config/synth-shell/alias.sh ] && [ -n "$(echo $- | grep i)" ]; then
-	source /home/yelaco/.config/synth-shell/alias.sh
+if [ -f ~/.config/synth-shell/alias.sh ] && [ -n "$(echo $- | grep i)" ]; then
+	source ~/.config/synth-shell/alias.sh
 fi
 
 ##-----------------------------------------------------
 ## better-history
-if [ -f /home/yelaco/.config/synth-shell/better-history.sh ] && [ -n "$(echo $- | grep i)" ]; then
-	source /home/yelaco/.config/synth-shell/better-history.sh
+if [ -f ~/.config/synth-shell/better-history.sh ] && [ -n "$(echo $- | grep i)" ]; then
+	source ~/.config/synth-shell/better-history.sh
 fi
 
 . "$HOME/.cargo/env"
@@ -164,7 +164,7 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/home/yelaco/.rd/bin:$PATH"
+export PATH="~/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 set -o vi
