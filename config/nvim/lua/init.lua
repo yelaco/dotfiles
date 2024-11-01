@@ -1,7 +1,7 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
--- setup colorscheme
+-- setup catppuccin colorscheme
 require("catppuccin").setup({
     flavour = "auto", -- latte, frappe, macchiato, mocha
     background = { -- :h background
@@ -37,18 +37,6 @@ require("catppuccin").setup({
     color_overrides = {},
     custom_highlights = {},
     default_integrations = true,
-    integrations = {
-        cmp = true,
-        gitsigns = true,
-        nvimtree = true,
-        treesitter = true,
-        notify = false,
-        mini = {
-            enabled = true,
-            indentscope_color = "",
-        },
-        -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
-    },
 })
 
 -- setup must be called before loading
@@ -59,9 +47,6 @@ vim.cmd([[highlight CursorLine guibg=#3A414C]])
 require('lualine').setup {
   options = { theme = 'catppuccin-mocha' }
 }
-
--- setup flutter development environment
-require("flutter-tools").setup {}
 
 -- setup go development environment
 require("go").setup()
