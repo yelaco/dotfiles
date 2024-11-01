@@ -8,9 +8,9 @@ case $- in
 *) return ;;
 esac
 
-if command -v tmux &>/dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-	exec tmux
-fi
+# if command -v tmux &>/dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+# 	exec tmux
+# fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -150,8 +150,10 @@ if [ -f ~/.config/synth-shell/better-history.sh ] && [ -n "$(echo $- | grep i)" 
 fi
 
 . "$HOME/.cargo/env"
+export PATH=$PATH:$HOME/.cargo/bin
 
-export PATH=$PATH:$HOME/go/bin
+export GOBIN=$HOME/go/bin
+export PATH=$PATH:$GOBIN
 
 export PATH="$HOME/development/flutter/bin:$PATH"
 
@@ -163,10 +165,10 @@ alias oldvim="\vim"
 export EDITOR=nvim
 export VISUAL=nvim
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="~/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 set -o vi
 
 source ~/.local/share/blesh/ble.sh
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/yelaco/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
