@@ -12,3 +12,5 @@ map("n", "<leader><S-r>r", "<cmd>Rest last<cr>", { desc = "Send last request"})
 map("n", "<leader><S-r>l", "<cmd>Rest logs<cr>", { desc = "View logs"})
 map("n", "<leader><S-r>es", "<cmd>Rest env show<cr>", { desc = "Show available env"})
 map("n", "<leader><S-r>ej", "<cmd>Rest env select<cr>", { desc = "Select env"})
+
+map("n", "<Leader>mp", "<cmd>MarkdownPreview<CR>", { desc = "Markdown Preview" })
