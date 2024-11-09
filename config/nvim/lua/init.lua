@@ -64,3 +64,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- project_nvim
 require("project_nvim").setup {}
+
+-- copilot_nvim
+vim.cmd(':Copilot disable')
