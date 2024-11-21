@@ -8,10 +8,6 @@ case $- in
 *) return ;;
 esac
 
-# if command -v tmux &>/dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-# 	exec tmux
-# fi
-
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -120,18 +116,6 @@ if ! shopt -oq posix; then
 fi
 
 ##-----------------------------------------------------
-## synth-shell-greeter.sh
-if [ -f ~/.config/synth-shell/synth-shell-greeter.sh ] && [ -n "$(echo $- | grep i)" ]; then
-	source ~/.config/synth-shell/synth-shell-greeter.sh
-fi
-
-##-----------------------------------------------------
-## synth-shell-prompt.sh
-if [ -f ~/.config/synth-shell/synth-shell-prompt.sh ] && [ -n "$(echo $- | grep i)" ]; then
-	source ~/.config/synth-shell/synth-shell-prompt.sh
-fi
-
-##-----------------------------------------------------
 ## better-ls
 if [ -f ~/.config/synth-shell/better-ls.sh ] && [ -n "$(echo $- | grep i)" ]; then
 	source ~/.config/synth-shell/better-ls.sh
@@ -143,11 +127,7 @@ if [ -f ~/.config/synth-shell/alias.sh ] && [ -n "$(echo $- | grep i)" ]; then
 	source ~/.config/synth-shell/alias.sh
 fi
 
-##-----------------------------------------------------
-## better-history
-if [ -f ~/.config/synth-shell/better-history.sh ] && [ -n "$(echo $- | grep i)" ]; then
-	source ~/.config/synth-shell/better-history.sh
-fi
+fastfetch --logo MacOS
 
 . "$HOME/.cargo/env"
 export PATH=$PATH:$HOME/.cargo/bin
@@ -167,16 +147,11 @@ alias oldvim="\vim"
 export EDITOR=nvim
 export VISUAL=nvim
 
-set -o vi
-
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/home/yelaco/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
-
-[[ -s "/home/yelaco/.gvm/scripts/gvm" ]] && source "/home/yelaco/.gvm/scripts/gvm"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init bash)"
 
 source ~/.local/share/blesh/ble.sh
