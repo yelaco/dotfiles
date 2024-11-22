@@ -1,7 +1,3 @@
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="~/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
 	# include .bashrc if it exists
@@ -10,7 +6,11 @@ if [ -n "$BASH_VERSION" ]; then
 	fi
 fi
 
-export PATH="~/development/flutter/bin:$PATH"
-
 # Added by Toolbox App
-export PATH="$PATH:~/.local/share/JetBrains/Toolbox/scripts"
+export PATH="$PATH:/home/yelaco/.local/share/JetBrains/Toolbox/scripts"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/home/yelaco/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+. "$HOME/.cargo/env"

@@ -8,6 +8,14 @@ case $- in
 *) return ;;
 esac
 
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
+eval "$(starship init bash)"
+
+if command -v tmux &>/dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+	exec tmux
+fi
+
+source ~/.local/share/blesh/ble.sh
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -127,11 +135,6 @@ if [ -f ~/.config/synth-shell/alias.sh ] && [ -n "$(echo $- | grep i)" ]; then
 	source ~/.config/synth-shell/alias.sh
 fi
 
-fastfetch --logo MacOS
-
-. "$HOME/.cargo/env"
-export PATH=$PATH:$HOME/.cargo/bin
-
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
 
@@ -147,11 +150,15 @@ alias oldvim="\vim"
 export EDITOR=nvim
 export VISUAL=nvim
 
+set -o vi
+stty time 0
+bind 'set keyseq-timeout 1'
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/home/yelaco/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
-eval "$(starship init bash)"
+fastfetch --logo MacOS
 
-source ~/.local/share/blesh/ble.sh
+# Add this line at the end of .bashrc:
+[[ ! ${BLE_VERSION-} ]] || ble-attach
