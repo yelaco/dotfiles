@@ -3,9 +3,10 @@
 
 palette = "catppuccin_mocha"
 
+format = '''${custom.tmux}$all'''
+
 [aws]
 symbol = "  "
-disabled = true
 
 [buf]
 symbol = " "
@@ -174,6 +175,12 @@ symbol = " "
 
 [gradle]
 symbol = " "
+
+[custom.tmux]
+symbol = "📟 "
+command = "tmux display-message -p '#S'"
+when = '''[ "$TMUX" ]'''
+format = '$symbol[$output]($style): '
 
 [palettes.catppuccin_mocha]
 rosewater = "#f5e0dc"
