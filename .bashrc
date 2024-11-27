@@ -15,7 +15,8 @@ if command -v tmux &>/dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && 
 	exec tmux new-session -A -s main
 fi
 
-source ~/.local/share/blesh/ble.sh
+source ~/.local/share/blesh/ble.sh --noattach
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
