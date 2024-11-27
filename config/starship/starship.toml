@@ -5,6 +5,8 @@ palette = "catppuccin_mocha"
 
 format = '''${custom.tmux}$all'''
 
+add_newline = false
+
 [aws]
 symbol = "  "
 

@@ -18,6 +18,8 @@ function blerc/vim-mode-hook {
   ble-bind -m vi_nmap -f 'C-RET' 'accept-line'
   ble-bind -m vi_nmap -f 'C-m' accept-line
   ble-bind -m vi_nmap -f 'RET' accept-line
+
+  bleopt prompt_ruler=empty-line
 }
 blehook/eval-after-load keymap_vi blerc/vim-mode-hook
 # ble-0.3 and before

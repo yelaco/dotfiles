@@ -158,7 +158,8 @@ bind 'set keyseq-timeout 1'
 export PATH="/home/yelaco/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-fastfetch --logo MacOS
+random_file=$(find ~/Pictures/wallpapers/Arcane/ -type f | shuf -n 1)
+kitten icat "$random_file"
 
 # Add this line at the end of .bashrc:
 [[ ! ${BLE_VERSION-} ]] || ble-attach
