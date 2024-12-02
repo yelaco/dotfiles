@@ -67,3 +67,6 @@ require("project_nvim").setup {}
 
 -- copilot_nvim
 vim.cmd(':Copilot disable')
+
+-- markdown_preview_nvim
+vim.g.mkdp_auto_close = 0
