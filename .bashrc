@@ -136,8 +136,16 @@ if [ -f ~/.config/synth-shell/alias.sh ] && [ -n "$(echo $- | grep i)" ]; then
 	source ~/.config/synth-shell/alias.sh
 fi
 
+##-----------------------------------------------------
+## better-history
+if [ -f /home/yelaco/.config/synth-shell/better-history.sh ] && [ -n "$(echo $- | grep i)" ]; then
+	source /home/yelaco/.config/synth-shell/better-history.sh
+fi
+
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
+
+export PATH=$PATH:$HOME/.cargo/bin/
 
 export PATH=$HOME/.local/bin:$PATH
 
