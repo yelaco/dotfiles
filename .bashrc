@@ -163,10 +163,6 @@ set -o vi
 stty time 0
 bind 'set keyseq-timeout 1'
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/home/yelaco/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 random_file=$(find ~/Pictures/wallpapers/Arcane/ -type f | shuf -n 1)
 kitten icat "$random_file"
 
