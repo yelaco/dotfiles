@@ -6,7 +6,4 @@ if [ -n "$BASH_VERSION" ]; then
 	fi
 fi
 
-# Added by Toolbox App
-export PATH="$PATH:/home/yelaco/.local/share/JetBrains/Toolbox/scripts"
-
 . "$HOME/.cargo/env"

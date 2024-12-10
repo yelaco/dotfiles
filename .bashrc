@@ -8,14 +8,14 @@ case $- in
 *) return ;;
 esac
 
+source ~/.local/share/blesh/ble.sh --noattach
+
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
 
 if command -v tmux &>/dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
 	exec tmux new-session -A -s main
 fi
-
-source ~/.local/share/blesh/ble.sh --noattach
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -127,29 +127,25 @@ fi
 ##-----------------------------------------------------
 ## better-ls
 if [ -f ~/.config/synth-shell/better-ls.sh ] && [ -n "$(echo $- | grep i)" ]; then
-	source ~/.config/synth-shell/better-ls.sh
+	source "$HOME/.config/synth-shell/better-ls.sh"
 fi
 
 ##-----------------------------------------------------
 ## alias
 if [ -f ~/.config/synth-shell/alias.sh ] && [ -n "$(echo $- | grep i)" ]; then
-	source ~/.config/synth-shell/alias.sh
+	source "$HOME/.config/synth-shell/alias.sh"
 fi
 
 ##-----------------------------------------------------
 ## better-history
 if [ -f /home/yelaco/.config/synth-shell/better-history.sh ] && [ -n "$(echo $- | grep i)" ]; then
-	source /home/yelaco/.config/synth-shell/better-history.sh
+	source "$HOME/.config/synth-shell/better-history.sh"
 fi
 
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
 
-export PATH=$PATH:$HOME/.cargo/bin/
-
 export PATH=$HOME/.local/bin:$PATH
-
-export PATH="$HOME/development/flutter/bin:$PATH"
 
 export PATH=$PATH:/opt/nvim-linux64/bin
 alias vim="nvim"
