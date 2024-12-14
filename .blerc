@@ -11,15 +11,13 @@ function blerc/vim-mode-hook {
   ble-bind -m vi_xmap --cursor 2
   ble-bind -m vi_cmap --cursor 0
 
-  ble-decode/keymap:vi_imap/define-meta-bindings
-  ble-bind -m vi_imap -f 'C-RET' 'accept-line'
-  ble-bind -m vi_imap -f 'C-m' accept-line
-  ble-bind -m vi_imap -f 'RET' accept-line
-  ble-bind -m vi_nmap -f 'C-RET' 'accept-line'
-  ble-bind -m vi_nmap -f 'C-m' accept-line
-  ble-bind -m vi_nmap -f 'RET' accept-line
-
-  bleopt prompt_ruler=empty-line
+  # ble-decode/keymap:vi_imap/define-meta-bindings
+  # ble-bind -m vi_imap -f 'C-RET' 'accept-line'
+  # ble-bind -m vi_imap -f 'C-m' accept-line
+  # ble-bind -m vi_imap -f 'RET' accept-line
+  # ble-bind -m vi_nmap -f 'C-RET' 'accept-line'
+  # ble-bind -m vi_nmap -f 'C-m' accept-line
+  # ble-bind -m vi_nmap -f 'RET' accept-line
 }
 blehook/eval-after-load keymap_vi blerc/vim-mode-hook
 # ble-0.3 and before
