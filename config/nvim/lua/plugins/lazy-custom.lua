@@ -37,13 +37,6 @@ return {
       },
       indent = {
         animate = { enabled = false },
-        chunk = {
-          enabled = true,
-          char = {
-            corner_top = "╭",
-            corner_bottom = "╰",
-          }
-        }
       }
     },
   },
