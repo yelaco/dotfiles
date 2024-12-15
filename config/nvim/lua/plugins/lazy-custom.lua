@@ -4,6 +4,7 @@ return {
     priority = 1000,
     lazy = false,
     opts = {
+      scroll = { enabled = false },
       statuscolumn = { enabled = true },
       bigfile = { enabled = true },
       dashboard = {
@@ -34,6 +35,16 @@ return {
       ⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⢿⠝⣡⠾⠛⠑⠁⠄⣠⣤⣴⣲⡄⠄⠄⠄⠄⡄⣤⡀⠄⠄⠈⡔⢸⣿⣿⣿⣿⣿⣿⣦⠄⠉⠉⠁⠄⢀⡟⠄⣿⣿⠟     ]],
         },
       },
+      indent = {
+        animate = { enabled = false },
+        chunk = {
+          enabled = true,
+          char = {
+            corner_top = "╭",
+            corner_bottom = "╰",
+          }
+        }
+      }
     },
   },
   {
@@ -56,6 +67,5 @@ return {
         })
       end
     end,
-  }
-  
+  },
 }
