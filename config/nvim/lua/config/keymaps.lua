@@ -59,4 +59,3 @@ map("n", "<leader>gHt", "", { desc = "Thread" })
 map("n", "<leader>gHtc", "<cmd>GHCreateThread<cr>", { desc = "Create Thread" })
 map("n", "<leader>gHtn", "<cmd>GHNextThread<cr>", { desc = "Next Thread" })
 map("n", "<leader>gHtt", "<cmd>GHToggleThread<cr>", { desc = "Toggle Thread" })
-

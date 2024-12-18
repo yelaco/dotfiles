@@ -1,5 +1,15 @@
 return {
   {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        clangd = {
+          filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "hpp" },
+        }
+      }
+    }
+  },
+  {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
@@ -37,6 +47,14 @@ return {
       },
       indent = {
         animate = { enabled = false },
+        chunk = {
+          enabled = true,
+          char = {
+            corner_top = "╭",
+            corner_bottom = "╰",
+            arrow = "─",
+          },
+        }
       }
     },
   },
