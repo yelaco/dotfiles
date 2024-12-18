@@ -26,11 +26,12 @@ weather_icons = {
 # to get your own location_id, go to https://weather.com & search your location.
 # once you choose your location, you can see the location_id in the URL(64 chars long hex string)
 # like this: https://weather.com/en-PH/weather/today/l/bca47d1099e762a012b9a139c36f30a0b1e647f69c0c4ac28b537e7ae9c1c200
-location_id = "99d10a330b93985c0e7c44524c70c69dcad2e0854710e4563542c72d7ba88756"  # TODO
+location_id = "bca47d1099e762a012b9a139c36f30a0b1e647f69c0c4ac28b537e7ae9c1c200"  # TODO
+
 # NOTE to change to deg F, change the URL to your preffered location after weather.com
 # Default is English-Philippines with Busan, South Korea as location_id
 # get html page
-url = "https://weather.com/vi-VN/weather/today/l/" + location_id
+url = "https://weather.com/en-PH/weather/today/l/" + location_id
 html_data = PyQuery(url=url)
 
 # current temperature
@@ -124,13 +125,11 @@ out_data = {
 }
 print(json.dumps(out_data))
 
-simple_weather = (
-    f"{icon}  {status}\n"
-    + f"  {temp} ({temp_feel_text})\n"
-    + f"{wind_text} \n"
-    + f"{humidity_text} \n"
-    + f"{visbility_text} AQI{air_quality_index}\n"
-)
+simple_weather =f"{icon}  {status}\n" + \
+                f"  {temp} ({temp_feel_text})\n" + \
+                f"{wind_text} \n" + \
+                f"{humidity_text} \n" + \
+                f"{visbility_text} AQI{air_quality_index}\n"
 
 try:
     with open(os.path.expanduser("~/.cache/.weather_cache"), "w") as file:
