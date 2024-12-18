@@ -162,5 +162,8 @@ bind 'set keyseq-timeout 1'
 random_file=$(find ~/Pictures/wallpapers/Arcane/ -type f | shuf -n 1)
 kitten icat "$random_file"
 
+## Use only when need to use gvm as it makes bash laggy
+# [[ -s "/home/yelaco/.gvm/scripts/gvm" ]] && source "/home/yelaco/.gvm/scripts/gvm"
+
 # Add this line at the end of .bashrc:
 [[ ! ${BLE_VERSION-} ]] || ble-attach
