@@ -64,7 +64,6 @@ if [ -n "$force_color_prompt" ]; then
 		color_prompt=
 	fi
 fi
-
 if [ "$color_prompt" = yes ]; then
 	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
@@ -142,6 +141,23 @@ if [ -f /home/yelaco/.config/synth-shell/better-history.sh ] && [ -n "$(echo $- 
 	source "$HOME/.config/synth-shell/better-history.sh"
 fi
 
+# Function to track and handle directory changes
+__last_dir="$PWD"
+
+tmux_window_name() {
+	($TMUX_PLUGIN_MANAGER_PATH/tmux-window-name/scripts/rename_session_windows.py &)
+}
+
+__chpwd_hook() {
+	if [[ "$PWD" != "$__last_dir" ]]; then
+		__last_dir="$PWD"
+		tmux_window_name
+	fi
+}
+
+# Add the hook to PROMPT_COMMAND
+PROMPT_COMMAND="${PROMPT_COMMAND}"';__chpwd_hook'
+
 . "$HOME/.cargo/env"
 
 export GOBIN=$HOME/go/bin
@@ -163,4 +179,5 @@ fastfetch
 
 # Add this line at the end of .bashrc:
 [[ ! ${BLE_VERSION-} ]] || ble-attach
-source ~/.bash_completion/alacritty
+
+export PATH=$PATH:/home/yelaco/.spicetify
