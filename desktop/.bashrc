@@ -8,14 +8,16 @@ case $- in
 *) return ;;
 esac
 
+export XDG_RUNTIME_DIR=/mnt/wslg/runtime-dir
+
 source ~/.local/share/blesh/ble.sh --noattach
 
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 eval "$(starship init bash)"
 
-# if command -v tmux &>/dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
-# 	exec tmux new-session -A -s main
-# fi
+if command -v tmux &>/dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+	exec tmux new-session -A -s main
+fi
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -144,6 +146,9 @@ fi
 
 export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
+export PATH=$PATH:/usr/local/go/bin
+
+. "$HOME/.cargo/env"
 
 export PATH=$HOME/.local/bin:$PATH
 
@@ -158,9 +163,6 @@ export VISUAL=nvim
 set -o vi
 stty time 0
 bind 'set keyseq-timeout 1'
-
-random_file=$(find ~/Pictures/wallpapers/Arcane/ -type f | shuf -n 1)
-kitten icat "$random_file"
 
 ## Use only when need to use gvm as it makes bash laggy
 # [[ -s "/home/yelaco/.gvm/scripts/gvm" ]] && source "/home/yelaco/.gvm/scripts/gvm"
