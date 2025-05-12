@@ -92,3 +92,5 @@ vim.api.nvim_create_autocmd('User', {
     vim.loop.fs_copyfile(lockfile, snapshot)
   end,
 })
+
+vim.opt.laststatus = 3
