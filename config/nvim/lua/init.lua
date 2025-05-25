@@ -62,9 +62,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = format_sync_grp,
 })
 
--- project_nvim
-require("project_nvim").setup {}
-
 -- markdown_preview_nvim
 vim.g.mkdp_auto_close = 0
 
