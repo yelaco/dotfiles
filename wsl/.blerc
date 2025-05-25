@@ -1,0 +1,24 @@
+# blerc
+
+function blerc/vim-mode-hook {
+  # ble-0.4
+  bleopt keymap_vi_mode_show=
+
+  # ble-0.4+
+  ble-bind -m vi_nmap --cursor 2
+  ble-bind -m vi_imap --cursor 5
+  ble-bind -m vi_omap --cursor 4
+  ble-bind -m vi_xmap --cursor 2
+  ble-bind -m vi_cmap --cursor 0
+
+  # ble-decode/keymap:vi_imap/define-meta-bindings
+  # ble-bind -m vi_imap -f 'C-RET' 'accept-line'
+  # ble-bind -m vi_imap -f 'C-m' accept-line
+  # ble-bind -m vi_imap -f 'RET' accept-line
+  # ble-bind -m vi_nmap -f 'C-RET' 'accept-line'
+  # ble-bind -m vi_nmap -f 'C-m' accept-line
+  # ble-bind -m vi_nmap -f 'RET' accept-line
+}
+blehook/eval-after-load keymap_vi blerc/vim-mode-hook
+# ble-0.3 and before
+# ble/array#push _ble_keymap_vi_load_hook blerc/vim-load-hook
