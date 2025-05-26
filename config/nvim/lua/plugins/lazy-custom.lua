@@ -1,5 +1,22 @@
 return {
   {
+    "nvim-neotest/neotest",
+    optional = true,
+    dependencies = {
+      "fredrikaverpil/neotest-golang",
+      "mrcjkb/rustaceanvim",
+    },
+    opts = {
+      adapters = {
+        ["neotest-golang"] = {
+          go_test_args = { "-v", "-race", "-count=1", "-timeout=60s" },
+          dap_go_enabled = true,
+        },
+        require('rustaceanvim.neotest'),
+      },
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
