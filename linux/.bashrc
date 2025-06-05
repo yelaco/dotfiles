@@ -148,6 +148,8 @@ export PATH=$PATH:/usr/local/go/bin
 
 export PATH=$HOME/.local/bin:$PATH
 
+. "$HOME/.cargo/env"
+
 export PATH=$PATH:/opt/nvim-linux64/bin
 alias vim="nvim"
 alias vi="nvim"
