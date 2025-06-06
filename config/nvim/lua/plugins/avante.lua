@@ -42,7 +42,7 @@ return {
         },
       },
       keys = {
-        { "<leader>ap", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+        { "<leader>am", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
       },
     },
     {
