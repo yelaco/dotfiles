@@ -88,3 +88,5 @@ vim.api.nvim_create_autocmd('User', {
 
 vim.opt.laststatus = 3
 vim.keymap.set('n', '<leader>;', 'A;<Esc>')
+vim.keymap.set('n', '<leader>m.', 'A.<Esc>')
+vim.keymap.set('n', '<leader>m,', 'A,<Esc>')
