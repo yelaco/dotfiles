@@ -9,6 +9,6 @@ return {
     },
     opts = {
       --@type lc.lang
-      lang = "go"
+      lang = "golang"
     },
 }
