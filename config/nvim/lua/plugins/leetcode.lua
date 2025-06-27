@@ -9,6 +9,15 @@ return {
     },
     opts = {
       --@type lc.lang
-      lang = "golang"
+      lang = "golang",
+
+      injector = { --@type table<lc.lang, lc.inject>
+        ["golang"] = {
+          before = "package leetcode",
+        },
+      },
+
+      --@type boolean
+      image_support = true,
     },
 }
