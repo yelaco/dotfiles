@@ -124,6 +124,12 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+if [ -d "$HOME/.bash_completion" ]; then
+	for file in "$HOME/.bash_completion/"*; do
+		[ -r "$file" ] && . "$file"
+	done
+fi
+
 ##-----------------------------------------------------
 ## better-ls
 if [ -f ~/.config/synth-shell/better-ls.sh ] && [ -n "$(echo $- | grep i)" ]; then
@@ -146,9 +152,9 @@ export GOBIN=$HOME/go/bin
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:/usr/local/go/bin
 
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$PATH:$HOME/.cargo/bin
 
-. "$HOME/.cargo/env"
+export PATH=$HOME/.local/bin:$PATH
 
 export PATH=$PATH:/opt/nvim-linux64/bin
 alias vim="nvim"
