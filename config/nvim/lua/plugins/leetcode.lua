@@ -14,8 +14,5 @@ return {
           before = "package leetcode",
         },
       },
-
-      --@type boolean
-      image_support = true,
     },
 }
