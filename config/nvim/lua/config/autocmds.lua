@@ -10,3 +10,5 @@ vim.api.nvim_create_autocmd({ 'VimEnter', 'VimLeave' }, {
 		end
 	end,
 })
+
+vim.cmd("silent! Copilot disable")
