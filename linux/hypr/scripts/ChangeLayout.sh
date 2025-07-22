@@ -26,6 +26,14 @@ case $LAYOUT in
 	notify-send -e -u low -i "$notif" " Nstack Layout"
 	;;
 "nstack")
+	hyprctl keyword general:layout workspacelayout
+	# hyprctl keyword unbind SUPER,J
+	# hyprctl keyword unbind SUPER,K
+	# hyprctl keyword bind SUPER,J,layoutmsg,cyclenext
+	# hyprctl keyword bind SUPER,K,layoutmsg,cycleprev
+	notify-send -e -u low -i "$notif" "Default Workspace Layout"
+	;;
+"workspacelayout")
 	hyprctl keyword general:layout master
 	# hyprctl keyword unbind SUPER,J
 	# hyprctl keyword unbind SUPER,K
