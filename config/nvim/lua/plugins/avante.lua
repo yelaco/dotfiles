@@ -18,6 +18,11 @@ return {
     -- add any opts here
     -- for example
     provider = "copilot",
+    providers = {
+      copilot = {
+        model = "gpt-4.1"
+      }
+    }
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
