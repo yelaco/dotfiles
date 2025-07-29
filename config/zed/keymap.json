@@ -1,9 +1,35 @@
 [
   {
+    "context": "Workspace",
+    "bindings": {
+      "space g g": [
+        "task::Spawn",
+        { "task_name": "start lazygit", "reveal_target": "center" }
+      ],
+      "space g d": [
+        "task::Spawn",
+        { "task_name": "start lazydocker", "reveal_target": "center" }
+      ],
+      "space b d": "pane::CloseActiveItem"
+    }
+  },
+  {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       // put key-bindings here if you want them to work in normal & visual mode
+      // Docker
+      "space g d": [
+        "task::Spawn",
+        { "task_name": "start lazydocker", "reveal_target": "center" }
+      ],
+
       // Git
+      // Open lazygit
+      "space g g": [
+        "task::Spawn",
+        { "task_name": "start lazygit", "reveal_target": "center" }
+      ],
+
       "space g h d": "editor::ToggleSelectedDiffHunks",
       "space g s": "git_panel::ToggleFocus",
 
