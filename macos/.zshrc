@@ -1,8 +1,14 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
+if command -v tmux &>/dev/null && [ -n "$PS1" ] && [ -z "$TMUX" ] && [ -z "$WARP_SESSION_ID" ]; then
+    exec tmux new-session -A -s main
+fi
+
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+
+eval "$(starship init zsh)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -73,16 +79,19 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(
   git
   zsh-autosuggestions
-  zsh-syntax-highlighting
   fast-syntax-highlighting
-  common-aliases
-  vi-mode
+  zsh-vi-mode
 )
 
-source $ZSH/oh-my-zsh.sh
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+autoload -U compinit && compinit
+source "$ZSH/oh-my-zsh.sh"
+
+source "$HOME/.apikeyrc"
 
 # User configuration
 export PATH="$PATH:$HOME/go/bin"
+export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib:$DYLD_FALLBACK_LIBRARY_PATH"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -141,3 +150,21 @@ alias colima-start="colima start"
 alias colima-stop="colima stop"
 alias colima-status="colima status"
 alias colima-restart="colima restart"
+
+# Set-up icons for files/directories in terminal using lsd
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
+# Set-up FZF key bindings (CTRL R for fuzzy history finder)
+source <(fzf --zsh)
+
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+
+fastfetch
+eval "$(gh copilot alias -- zsh)"
