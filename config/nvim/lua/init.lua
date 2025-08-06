@@ -42,7 +42,7 @@ require("catppuccin").setup({
 require('image').setup({
   integrations = {
     markdown = {
-      only_render_image_at_cursor = true,
+      -- only_render_image_at_cursor = true,
       resolve_image_path = function(document_path, image_path, fallback)
         -- Define the absolute path to your Assets directory
         local assets_dir = vim.fn.expand("~/second-brain/assets") -- not the path to vault, but to the assets dir
@@ -65,7 +65,8 @@ require('image').setup({
         end
       end,
     }
-  }
+  },
+  tmux_show_only_in_active_window = true,
 })
 
 -- setup must be called before loading
