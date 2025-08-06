@@ -15,11 +15,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  rocks = {
+    hererocks = true,  -- recommended if you do not have global installation of Lua 5.1.
+  },
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import/override with your plugins
     { import = "plugins" },
+    {
+      "3rd/image.nvim",
+      opts = {}
+    },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

@@ -79,12 +79,12 @@ return {
       end
     end,
   },
-  {
-    "zbirenbaum/copilot.lua",
-    opts = {
-      logger = {
-        print_log_level = vim.log.levels.ERROR, -- or `OFF` instead of `ERROR` if you want to disable logging as a whole
-      },
-    },
-  }
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   opts = {
+  --     logger = {
+  --       print_log_level = vim.log.levels.ERROR, -- or `OFF` instead of `ERROR` if you want to disable logging as a whole
+  --     },
+  --   },
+  -- }
 }

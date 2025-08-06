@@ -39,6 +39,35 @@ require("catppuccin").setup({
     default_integrations = true,
 })
 
+require('image').setup({
+  integrations = {
+    markdown = {
+      only_render_image_at_cursor = true,
+      resolve_image_path = function(document_path, image_path, fallback)
+        -- Define the absolute path to your Assets directory
+        local assets_dir = vim.fn.expand("~/second-brain/assets") -- not the path to vault, but to the assets dir
+
+        -- Check if the image_path is already an absolute path
+        if image_path:match("^/") then
+          -- If it's an absolute path, leave it unchanged
+          return image_path
+        end
+
+        -- Construct the new image path by prepending the Assets directory
+        local new_image_path = assets_dir .. "/" .. image_path
+
+        -- Check if the constructed path exists
+        if vim.fn.filereadable(new_image_path) == 1 then
+          return new_image_path
+        else
+        -- If the file doesn't exist in Assets, fallback to default behavior
+          return fallback(document_path, image_path)
+        end
+      end,
+    }
+  }
+})
+
 -- setup must be called before loading
 vim.cmd.colorscheme "catppuccin-mocha"
 
