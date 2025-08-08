@@ -8,5 +8,10 @@
     "label": "start lazydocker",
     "command": "lazydocker",
     "hide": "on_success"
+  },
+  {
+    "label": "start gotop",
+    "command": "gotop",
+    "hide": "on_success"
   }
 ]

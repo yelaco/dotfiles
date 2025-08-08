@@ -4,6 +4,12 @@
     "bindings": {
       // put key-bindings here if you want them to work in normal & visual mode
       // Docker
+      "space g t": [
+        "task::Spawn",
+        { "task_name": "start gotop", "reveal_target": "center" }
+      ],
+
+      // Docker
       "space g d": [
         "task::Spawn",
         { "task_name": "start lazydocker", "reveal_target": "center" }
@@ -225,4 +231,29 @@
   //     "g e": "vim::PreviousSubwordEnd"
   //   }
   // }
+,
+  {
+    "context": "AgentPanel",
+    "bindings": {
+      "ctrl-.": "assistant::QuoteSelection"
+    }
+  },
+  {
+    "context": "(Editor && mode == full)",
+    "bindings": {
+      "ctrl-.": "assistant::QuoteSelection"
+    }
+  },
+  {
+    "context": "ContextEditor > Editor",
+    "bindings": {
+      "ctrl-,": "assistant::InsertIntoEditor"
+    }
+  },
+  {
+    "context": "(Editor && mode == full)",
+    "bindings": {
+      "ctrl-,": "assistant::InsertIntoEditor"
+    }
+  }
 ]

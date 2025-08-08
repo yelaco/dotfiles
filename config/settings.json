@@ -7,6 +7,22 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "context_servers": {
+    "mcp-server-context7": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {
+        "default_minimum_tokens": "10000"
+      }
+    },
+    "mcp-server-github": {
+      "source": "extension",
+      "enabled": true,
+      "settings": {
+        "github_personal_access_token": "$GITHUB_PAT"
+      }
+    }
+  },
   "icon_theme": "Catppuccin Mocha",
   "features": {
     "edit_prediction_provider": "copilot"
@@ -15,6 +31,10 @@
   "format_on_save": "on",
   "close_on_file_delete": true,
   "agent": {
+    "inline_assistant_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4.1"
+    },
     "always_allow_tool_actions": true,
     "default_profile": "ask",
     "default_model": {
@@ -41,15 +61,15 @@
     "show": "auto"
   },
   "relative_line_numbers": true,
-  "base_keymap": "Cursor",
+  "base_keymap": "VSCode",
   "vim_mode": true,
-  "ui_font_size": 15,
-  "buffer_font_size": 13.5,
+  "ui_font_size": 14,
+  "buffer_font_size": 12.5,
   "buffer_font_family": "FiraCode Nerd Font",
-  "buffer_font_weight": 510,
+  "buffer_font_weight": 500,
   "theme": {
     "mode": "system",
-    "light": "One Light",
+    "light": "Catppuccin Frappé",
     "dark": "Catppuccin Mocha"
   }
 }
