@@ -23,6 +23,15 @@
       }
     }
   },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy"
+        }
+      }
+    }
+  },
   "icon_theme": "Catppuccin Mocha",
   "features": {
     "edit_prediction_provider": "copilot"
