@@ -1,19 +1,13 @@
 return {
   {
-    "akinsho/bufferline.nvim",
-    init = function()
-      local bufline = require("catppuccin.groups.integrations.bufferline")
-      function bufline.get()
-        return bufline.get_theme()
-      end
-    end,
-  },
-  {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
         clangd = {
           filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "hpp" },
+          init_options = {
+            fallbackFlags = { '--std=c23' },
+          },
         }
       }
     }
