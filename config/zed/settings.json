@@ -7,49 +7,67 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "project_panel": {
+    "hide_gitignore": false,
+    "hide_hidden": false,
+  },
+  "colorize_brackets": true,
+  "edit_predictions": {
+    "provider": "copilot",
+    "mode": "subtle",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null,
+      "enterprise_uri": null,
+    },
+    "enabled_in_text_threads": false,
+  },
   "context_servers": {
     "mcp-server-context7": {
-      "source": "extension",
       "enabled": true,
       "settings": {
-        "default_minimum_tokens": "10000"
-      }
+        "context7_api_key": "ctx7sk-b6147e5d-f118-4a64-8f11-8b52e3cad171",
+      },
     },
     "mcp-server-github": {
-      "source": "extension",
       "enabled": true,
       "settings": {
-        "github_personal_access_token": "$GITHUB_PAT"
-      }
-    }
+        "github_personal_access_token": "$GITHUB_PAT",
+      },
+    },
   },
   "lsp": {
     "rust-analyzer": {
       "initialization_options": {
         "check": {
-          "command": "clippy"
-        }
-      }
-    }
+          "command": "clippy",
+        },
+      },
+    },
+    "pyright": {
+      "settings": {
+        "python": {
+          "pythonPath": ".venv/bin/python",
+        },
+      },
+    },
   },
   "icon_theme": "Catppuccin Mocha",
-  "features": {
-    "edit_prediction_provider": "copilot"
-  },
   "autosave": "on_window_change",
   "format_on_save": "on",
   "close_on_file_delete": true,
   "agent": {
+    "expand_edit_card": true,
     "inline_assistant_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4.1"
+      "model": "claude-opus-4.5",
     },
     "always_allow_tool_actions": true,
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4.1"
-    }
+      "model": "gpt-4.1",
+    },
   },
   "languages": {
     "Python": {
@@ -57,19 +75,19 @@
       "formatter": [
         {
           "language_server": {
-            "name": "ruff"
-          }
-        }
-      ]
-    }
+            "name": "ruff",
+          },
+        },
+      ],
+    },
   },
   "inlay_hints": {
-    "enabled": true
+    "enabled": true,
   },
   "minimap": {
-    "show": "auto"
+    "show": "never",
   },
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "base_keymap": "VSCode",
   "vim_mode": true,
   "ui_font_size": 14,
@@ -77,8 +95,8 @@
   "buffer_font_family": "FiraCode Nerd Font",
   "buffer_font_weight": 500,
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Catppuccin Frappé",
-    "dark": "Catppuccin Mocha"
-  }
+    "dark": "Catppuccin Mocha",
+  },
 }

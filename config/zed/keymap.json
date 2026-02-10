@@ -6,20 +6,20 @@
       // Docker
       "space g t": [
         "task::Spawn",
-        { "task_name": "start gotop", "reveal_target": "center" }
+        { "task_name": "start gotop", "reveal_target": "center" },
       ],
 
       // Docker
       "space g d": [
         "task::Spawn",
-        { "task_name": "start lazydocker", "reveal_target": "center" }
+        { "task_name": "start lazydocker", "reveal_target": "center" },
       ],
 
       // Git
       // Open lazygit
       "space g g": [
         "task::Spawn",
-        { "task_name": "start lazygit", "reveal_target": "center" }
+        { "task_name": "start lazygit", "reveal_target": "center" },
       ],
 
       "space g h d": "editor::ToggleSelectedDiffHunks",
@@ -44,10 +44,15 @@
       "space s w": "pane::DeploySearch",
 
       // Chat with AI
-      "space a c": "assistant::ToggleFocus",
+      "space a c": "agent::ToggleFocus",
       // Go to file with `gf`
-      "g f": "editor::OpenExcerpts"
-    }
+      "g f": "editor::OpenExcerpts",
+      "space c s": "outline::Toggle",
+
+      "g s a": ["vim::PushAddSurrounds", {}],
+      "g s r": ["vim::PushChangeSurrounds", {}],
+      "g s d": ["vim::PushDeleteSurrounds", {}],
+    },
   },
   {
     "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
@@ -98,7 +103,7 @@
       "ctrl-q": "pane::CloseActiveItem",
       "space b d": "pane::CloseActiveItem",
       // Close other items
-      "space b o": "pane::CloseInactiveItems",
+      "space b o": "pane::CloseOtherItems",
       // Save file
       "ctrl-s": "workspace::Save",
       // File finder
@@ -107,8 +112,8 @@
       "space /": "pane::DeploySearch",
       // TODO: Open other files
       // Show project panel with current file
-      "space e": "pane::RevealInProjectPanel"
-    }
+      "space e": "pane::RevealInProjectPanel",
+    },
   },
   // Empty pane, set of keybindings that are available when there is no active editor
   {
@@ -117,47 +122,47 @@
       // Open file finder
       "space space": "file_finder::Toggle",
       // Open recent project
-      "space f p": "projects::OpenRecent"
-    }
+      "space f p": "projects::OpenRecent",
+    },
   },
   // Comment code
   {
     "context": "Editor && vim_mode == visual && !VimWaiting && !menu",
     "bindings": {
       // visual, visual line & visual block modes
-      "g c": "editor::ToggleComments"
-    }
+      "g c": "editor::ToggleComments",
+    },
   },
   // Better escape
   {
     "context": "Editor && vim_mode == insert && !menu",
     "bindings": {
       "j j": "vim::NormalBefore", // remap jj in insert mode to escape
-      "j k": "vim::NormalBefore" // remap jk in insert mode to escape
-    }
+      "j k": "vim::NormalBefore", // remap jk in insert mode to escape
+    },
   },
   // Rename
   {
     "context": "Editor && vim_operator == c",
     "bindings": {
       "c": "vim::CurrentLine",
-      "r": "editor::Rename" // zed specific
-    }
+      "r": "editor::Rename", // zed specific
+    },
   },
   // Code Action
   {
     "context": "Editor && vim_operator == c",
     "bindings": {
       "c": "vim::CurrentLine",
-      "a": "editor::ToggleCodeActions" // zed specific
-    }
+      "a": "editor::ToggleCodeActions", // zed specific
+    },
   },
   // Toggle terminal
   {
     "context": "Workspace",
     "bindings": {
-      "ctrl-\\": "terminal_panel::ToggleFocus"
-    }
+      "ctrl-\\": "terminal_panel::ToggleFocus",
+    },
   },
   {
     "context": "Terminal",
@@ -165,8 +170,8 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
-    }
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
   },
   // File panel (netrw)
   {
@@ -186,8 +191,8 @@
       "ctrl-h": "workspace::ActivatePaneLeft",
       "ctrl-l": "workspace::ActivatePaneRight",
       "ctrl-k": "workspace::ActivatePaneUp",
-      "ctrl-j": "workspace::ActivatePaneDown"
-    }
+      "ctrl-j": "workspace::ActivatePaneDown",
+    },
   },
   // Panel nagivation
   {
@@ -196,31 +201,31 @@
       "ctrl-w h": "workspace::ActivatePaneLeft",
       "ctrl-w l": "workspace::ActivatePaneRight",
       "ctrl-w k": "workspace::ActivatePaneUp",
-      "ctrl-w j": "workspace::ActivatePaneDown"
-    }
+      "ctrl-w j": "workspace::ActivatePaneDown",
+    },
   },
   {
     "context": "Workspace",
     "bindings": {
       // Map VSCode like keybindings
-      "cmd-b": "workspace::ToggleRightDock"
-    }
+      "cmd-b": "workspace::ToggleRightDock",
+    },
   },
   // Run nearest task
   {
     "context": "EmptyPane || SharedScreen || vim_mode == normal",
     "bindings": {
-      "space r t": ["editor::SpawnNearestTask", { "reveal": "no_focus" }]
-    }
+      "space r t": ["editor::SpawnNearestTask", { "reveal": "no_focus" }],
+    },
   },
   // Sneak motion, refer https://github.com/zed-industries/zed/pull/22793/files#diff-90c0cb07588e2f309c31f0bb17096728b8f4e0bad71f3152d4d81ca867321c68
   {
     "context": "vim_mode == normal || vim_mode == visual",
     "bindings": {
       "s": ["vim::PushSneak", {}],
-      "S": ["vim::PushSneakBackward", {}]
-    }
-  }
+      "S": ["vim::PushSneakBackward", {}],
+    },
+  },
   // Subword motion is not working really nice with `ciw`, disable for now
   // {
   //   "context": "VimControl && !menu",
@@ -231,29 +236,52 @@
   //     "g e": "vim::PreviousSubwordEnd"
   //   }
   // }
-,
   {
     "context": "AgentPanel",
     "bindings": {
-      "ctrl-.": "assistant::QuoteSelection"
-    }
+      "ctrl-.": "agent::AddSelectionToThread",
+    },
   },
   {
     "context": "(Editor && mode == full)",
     "bindings": {
-      "ctrl-.": "assistant::QuoteSelection"
-    }
+      "ctrl-.": "agent::AddSelectionToThread",
+    },
   },
   {
     "context": "ContextEditor > Editor",
     "bindings": {
-      "ctrl-,": "assistant::InsertIntoEditor"
-    }
+      "ctrl-,": "assistant::InsertIntoEditor",
+    },
   },
   {
     "context": "(Editor && mode == full)",
     "bindings": {
-      "ctrl-,": "assistant::InsertIntoEditor"
-    }
-  }
+      "ctrl-,": "assistant::InsertIntoEditor",
+    },
+  },
+  {
+    "context": "(VimControl && !menu)",
+    "bindings": {
+      "g s": null,
+    },
+  },
+  {
+    "context": "((vim_mode == helix_normal || vim_mode == helix_select) && !menu)",
+    "bindings": {
+      "space c s": "outline::Toggle",
+    },
+  },
+  {
+    "context": "(Editor && edit_prediction)",
+    "bindings": {
+      "enter": "editor::AcceptEditPrediction",
+    },
+  },
+  {
+    "context": "(Editor && edit_prediction_conflict)",
+    "bindings": {
+      "alt-enter": "editor::AcceptEditPrediction",
+    },
+  },
 ]
