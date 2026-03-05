@@ -1,0 +1,3 @@
+[submodule "confnig/opencode/superpowers"]
+	path = confnig/opencode/superpowers
+	url = https://github.com/obra/superpowers
