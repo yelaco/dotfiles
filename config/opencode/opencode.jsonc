@@ -4,7 +4,5 @@
     "@tarquinen/opencode-dcp@latest",
     "cc-safety-net",
     "opencode-agent-skills",
-    "oh-my-opencode@latest",
   ],
-  "provider": {},
 }
